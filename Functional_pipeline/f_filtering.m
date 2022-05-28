@@ -1,6 +1,6 @@
 function [signal_filt, signal_filt_phases, signal_filt_amplitudes] = f_filtering (freqs , fs , i_ROI , x , n)
 
-    for bb= (1:size(freqs,2)) %bands
+    for bb= (1:size(freqs,2)) % bands
         f1 = freqs (1,bb);
         f2 = freqs (2,bb);
         WnA = (2* f1 /  fs);
