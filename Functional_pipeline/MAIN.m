@@ -29,6 +29,7 @@ for i_G = (0.5:0.5:15) %0.5:0.5:15
             name=['signal_G' num2str(i_G,'%.1f'), '_s' int2str(i_speed), '_trial' int2str(i_trial)]; % i_G `differente perche decimale
             disp(strcat(sub_ID,'/',name,': processing'))
             load(['F:/Charite/simulations/DKT/',sub_ID,'/',name,'.mat']);
+            %load(['C:/Users/EQUIPO/Desktop/simulations/DKT/',sub_ID,'/',name,'.mat']);
             for i_ROI= (1:size(signal,1)) % ROI index
                 x = signal(i_ROI,:);
                 n = 500; % filter order (fisso a 500) .. senno per farlo rispetto alla lunghezza del campione usa "n= floor(size(x,2)/800);"
