@@ -8,7 +8,7 @@ clearvars
 prompt= 'insert subject ID: ';
 sub_ID = input (prompt, "s");
 
-load(['Funct_conn_r.mat']);
+load('Funct_conn_r.mat');
 sub_ind = find(strcmp({Funct_conn_DKT.subject}, sub_ID)==1);
 
 AEC_r=Funct_conn_DKT(sub_ind).PLV_r;
@@ -19,7 +19,7 @@ freqs = [2 5 8 15 30 ;4 7 12 29 45];
 fs=1000;
 signal_length=6000; %total signal length
 edges = 1000; %considera 1000 a da e a sx, piu in la (per FC)
-good_samples = [(edges+1) : signal_length - (edges)]; % good samples (without edges)
+good_samples = (edges+1) : signal_length - (edges); % good samples (without edges)
 G_factor = 0.5;
 
 %filt and hilb extraction
@@ -54,7 +54,7 @@ for i_G = (0.5:0.5:15) %0.5:0.5:15
             sub_proc.FFT_mean(1,:) = mean(sub_proc.FFT(i_ROI,:),1);
             sub_proc.FFT_peak = find(sub_proc.FFT_mean == max(sub_proc.FFT_mean));
 
-            [PLV_s, AEC_s] = f_funct_connectivity (sub_proc.signal, sub_proc.signal_filt_phases, sub_proc.signal_filt_amplitudes, good_samples);
+            [PLV_s, AEC_s] = f_funct_connectivity (sub_proc.signal, sub_proc.signal_filt_phases, sub_proc.signal_filt_amplitudes, good_samples, edges);
             sub_proc.PLV_s = PLV_s;
             sub_proc.AEC_s = AEC_s;
             sub_proc.signal_filt_phases = signal_filt_phases;
