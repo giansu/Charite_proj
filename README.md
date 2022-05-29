@@ -1,2 +1,2 @@
 # Charite
-Matlab code developed for the project EPAMEG carried out at Charité
+Matlab code developed for the project ESPREA-MEG carried out at Charité
