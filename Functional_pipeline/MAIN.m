@@ -32,7 +32,7 @@ for i_G = (0.5:0.5:15) %0.5:0.5:15
             %load(['C:/Users/EQUIPO/Desktop/simulations/DKT/',sub_ID,'/',name,'.mat']);
             for i_ROI= (1:size(signal,1)) % ROI index
                 x = signal(i_ROI,:);
-                n = 800; % filter order (fisso a 500) .. senno per farlo rispetto alla lunghezza del campione usa "n= floor(size(x,2)/800);"
+                n = 800; % FIR filter order (fixed to 800)
 
                 [signal_filt, signal_filt_phases, signal_filt_amplitudes] = f_filtering ( freqs , fs , i_ROI, x , n);
                 sub_proc.signal_filt (i_ROI,:,:) = signal_filt;
